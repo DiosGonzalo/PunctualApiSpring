@@ -24,4 +24,16 @@ public class Usuario {
 
     @ManyToOne
     private Workplace workplace;
+    @Column(name = "telefono")
+    private String telefono; // <--- LO QUE FALTABA EN PANTALLA USUARIOS
+
+    // Relación con Modalidad (Muchos usuarios tienen una modalidad)
+    @ManyToOne
+    @JoinColumn(name = "modalidad_id")
+    private Modalidad modalidad;
+
+    // Relación con Horario (El turno que tiene asignado)
+    @ManyToOne
+    @JoinColumn(name = "horario_id")
+    private Horario horario;
 }
